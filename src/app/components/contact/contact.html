@@ -1,0 +1,109 @@
+<section id="contact" class="contact-section">
+  <div class="contact-bg" aria-hidden="true">
+    <div class="c-orb c-orb-1"></div>
+    <div class="c-orb c-orb-2"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="contact-header">
+    <div class="reveal">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+      <div class="section-divider center"></div>
+      <p class="contact-tagline">
+        Open to exciting opportunities, collaborations, and interesting projects
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-body">
+    <!-- Left: Info -->
+    <div class="contact-info-col reveal-left">
+      <div class="info-intro">
+        <p>
+          I'm currently open to new opportunities and always excited to discuss
+          innovative projects. Whether you have a question, a collaboration idea,
+          or just want to say hello — feel free to reach out!
+        </p>
+      </div>
+
+      <div class="contact-cards">
+        @for (item of contactInfo; track item.label) {
+          @if (item.href) {
+            <a [href]="item.href" class="contact-card" target="_blank" rel="noopener">
+              <span class="cc-icon">{{ item.icon }}</span>
+              <div class="cc-info">
+                <span class="cc-label">{{ item.label }}</span>
+                <span class="cc-value">{{ item.value }}</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+          } @else {
+            <div class="contact-card">
+              <span class="cc-icon">{{ item.icon }}</span>
+              <div class="cc-info">
+                <span class="cc-label">{{ item.label }}</span>
+                <span class="cc-value">{{ item.value }}</span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <!-- Status indicator -->
+      <div class="availability-badge">
+        <div class="avail-dot"></div>
+        <div class="avail-text">
+          <strong>Available for Opportunities</strong>
+          <span>Full-time / Contract / Freelance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form-col reveal-right">
+      <div class="form-card">
+        <h3 class="form-title">Send a Message ✨</h3>
+
+        @if (sent) {
+          <div class="success-msg">
+            <span class="success-icon">🎉</span>
+            <div>
+              <strong>Message sent!</strong>
+              <p>Thank you for reaching out. I'll get back to you soon.</p>
+            </div>
+          </div>
+        } @else {
+          <form (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input id="name" type="text" [(ngModel)]="form.name" name="name"
+                       placeholder="John Doe" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" [(ngModel)]="form.email" name="email"
+                       placeholder="john@example.com" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" [(ngModel)]="form.subject" name="subject"
+                     placeholder="Let's work together">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" [(ngModel)]="form.message" name="message"
+                        placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

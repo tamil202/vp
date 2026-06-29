@@ -1,0 +1,99 @@
+<section id="about" class="about-section">
+  <!-- Background -->
+  <div class="about-bg" aria-hidden="true">
+    <div class="about-orb about-orb-1"></div>
+    <div class="about-orb about-orb-2"></div>
+  </div>
+
+  <div class="about-container">
+    <!-- Left: Profile visual -->
+    <div class="about-visual reveal-left">
+      <div class="profile-frame">
+        <div class="profile-outer-ring"></div>
+        <div class="profile-inner-ring"></div>
+        <div class="profile-circle">
+          <span class="profile-initials">VP</span>
+          <div class="profile-glow"></div>
+        </div>
+        <!-- Floating skill dots -->
+        <div class="skill-dot sd-1">Angular</div>
+        <div class="skill-dot sd-2">NestJS</div>
+        <div class="skill-dot sd-3">MySQL</div>
+        <div class="skill-dot sd-4">Redis</div>
+      </div>
+
+      <!-- Quick contact card -->
+      <div class="contact-quick reveal" style="transition-delay:0.3s">
+        <a href="mailto:vishnukprahbak@gmail.com" class="contact-quick-item">
+          <span class="cq-icon">📧</span>
+          <span>vishnukprahbak&#64;gmail.com</span>
+        </a>
+        <a href="tel:+919344154479" class="contact-quick-item">
+          <span class="cq-icon">📞</span>
+          <span>+91 93441 54479</span>
+        </a>
+        <div class="contact-quick-item">
+          <span class="cq-icon">📍</span>
+          <span>Tamil Nadu, India</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Content -->
+    <div class="about-content">
+      <div class="reveal">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">
+          Crafting Digital<br>
+          <span class="gradient-text">Experiences</span>
+        </h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <p class="about-bio reveal" style="transition-delay:0.1s">
+        Full-stack Software Engineer with a passion for building scalable enterprise applications.
+        I specialize in <strong>Angular</strong> and <strong>NestJS</strong>, creating seamless
+        user experiences backed by robust, high-performance APIs.
+      </p>
+
+      <p class="about-bio reveal" style="transition-delay:0.2s">
+        Currently working at <strong class="highlight-text">Stellar Innovation</strong> where I
+        design RESTful services, architect database schemas, and build reusable UI component libraries.
+        I take pride in writing clean, maintainable code with a focus on performance optimization.
+      </p>
+
+      <!-- Highlights grid -->
+      <div class="highlights-grid">
+        @for (h of highlights; track $index) {
+          <div class="highlight-item reveal-scale" [style.transitionDelay]="(0.1 * $index) + 's'">
+            <span class="h-icon">{{ h.icon }}</span>
+            <span class="h-text">{{ h.text }}</span>
+          </div>
+        }
+      </div>
+
+      <!-- Education card -->
+      <div class="education-card reveal" style="transition-delay:0.4s">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-info">
+          <span class="edu-degree">B.E — PSNA College of Engineering &amp; Technology</span>
+          <span class="edu-year">Dindigul · 2018 – 2022</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="about-stats">
+    @for (stat of stats; track $index) {
+      <div class="stat-card reveal-scale" [style.transitionDelay]="(0.1 * $index) + 's'">
+        <span class="stat-icon">{{ stat.icon }}</span>
+        <div class="stat-number">
+          <span class="stat-val">{{ stat.current }}</span>
+          <span class="stat-suf">{{ stat.suffix }}</span>
+        </div>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>

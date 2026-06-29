@@ -1,0 +1,67 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="nav-inner">
+    <div class="nav-logo" (click)="scrollTo('home')">
+      <svg class="logo-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-label="VP logo">
+        <defs>
+          <linearGradient id="lg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#ec4899"/>
+            <stop offset="55%"  stop-color="#d946ef"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+          <linearGradient id="lg-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="rgba(255,255,255,0.28)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+          <filter id="lg-glow">
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Card background -->
+        <rect x="1" y="1" width="42" height="42" rx="12" fill="url(#lg-bg)" filter="url(#lg-glow)"/>
+        <!-- Top-half gloss -->
+        <rect x="1" y="1" width="42" height="22" rx="12" fill="url(#lg-shine)"/>
+        <!-- Subtle border -->
+        <rect x="1" y="1" width="42" height="42" rx="12" fill="none"
+              stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+
+        <!-- Decorative tiny star top-right -->
+        <polygon points="37,7 37.8,9.5 40.5,9.5 38.4,11 39.2,13.5 37,12 34.8,13.5 35.6,11 33.5,9.5 36.2,9.5"
+                 fill="rgba(255,255,255,0.7)" transform="scale(0.55) translate(30,-3)"/>
+
+        <!-- V  -->
+        <path d="M9 14 L14.5 30 L20 14" fill="none" stroke="white" stroke-width="2.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- P  -->
+        <path d="M23 14 L23 30 M23 14 L28.5 14 Q32 14 32 19 Q32 24 28.5 24 L23 24"
+              fill="none" stroke="white" stroke-width="2.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-name">Vishnuprabha</span>
+    </div>
+
+    <ul class="nav-links" [class.open]="isMobileOpen()">
+      @for (link of navLinks; track link.id) {
+        <li>
+          <a (click)="scrollTo(link.id)" [class.active]="activeSection() === link.id">
+            {{ link.label }}
+            <span class="link-dot"></span>
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="nav-actions">
+      <a (click)="scrollTo('contact')" class="nav-cta">Hire Me ✨</a>
+      <button class="hamburger" [class.open]="isMobileOpen()" (click)="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+@if (isMobileOpen()) {
+  <div class="mobile-overlay" (click)="toggleMobile()"></div>
+}

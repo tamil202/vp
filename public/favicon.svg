@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#ec4899"/>
+      <stop offset="55%"  stop-color="#d946ef"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <!-- Card -->
+  <rect x="1" y="1" width="42" height="42" rx="11" fill="url(#bg)"/>
+  <!-- Gloss -->
+  <rect x="1" y="1" width="42" height="22" rx="11" fill="url(#shine)"/>
+  <!-- Border -->
+  <rect x="1" y="1" width="42" height="42" rx="11" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+  <!-- V -->
+  <path d="M9 14 L14.5 30 L20 14" fill="none" stroke="white" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- P -->
+  <path d="M23 14 L23 30 M23 14 L28.5 14 Q32 14 32 19 Q32 24 28.5 24 L23 24"
+        fill="none" stroke="white" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

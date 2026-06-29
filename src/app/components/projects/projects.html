@@ -1,0 +1,65 @@
+<section id="projects" class="projects-section">
+  <div class="proj-bg" aria-hidden="true">
+    <div class="proj-orb proj-orb-1"></div>
+    <div class="proj-orb proj-orb-2"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="proj-header">
+    <div class="reveal">
+      <span class="section-tag">My Work</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      <div class="section-divider center"></div>
+      <p class="proj-subtitle">A collection of enterprise applications I've built and contributed to</p>
+    </div>
+  </div>
+
+  <!-- Projects grid -->
+  <div class="projects-grid">
+    @for (project of projects; track project.name) {
+      <div class="project-card reveal-scale"
+           [style.transitionDelay]="(0.12 * $index) + 's'"
+           #card
+           (mousemove)="onCardMove($event, card)"
+           (mouseleave)="onCardLeave(card)">
+
+        <!-- Shine overlay -->
+        <div class="card-shine"></div>
+
+        <!-- Card gradient bg -->
+        <div class="card-gradient" [style.background]="project.gradient"></div>
+
+        <!-- Top row -->
+        <div class="card-top">
+          <div class="project-icon" [style.boxShadow]="'0 8px 20px ' + project.color + '33'">
+            <span>{{ project.icon }}</span>
+          </div>
+          <span class="project-status" [style.color]="project.color" [style.borderColor]="project.color + '44'">
+            {{ project.status }}
+          </span>
+        </div>
+
+        <!-- Content -->
+        <h3 class="project-name" [style.color]="project.color">{{ project.name }}</h3>
+        <p class="project-subtitle-text">{{ project.subtitle }}</p>
+        <p class="project-desc">{{ project.description }}</p>
+
+        <!-- Tech stack -->
+        <div class="project-tech-wrap">
+          @for (tech of project.tech; track tech) {
+            <span class="project-tech" [style.borderColor]="project.color + '33'" [style.color]="project.color">{{ tech }}</span>
+          }
+        </div>
+
+        <!-- Card bottom line -->
+        <div class="card-bottom-line" [style.background]="'linear-gradient(90deg, ' + project.color + ', transparent)'"></div>
+      </div>
+    }
+  </div>
+
+  <!-- Coming soon notice -->
+  <div class="coming-soon reveal">
+    <span class="cs-icon">✨</span>
+    <span>More projects coming soon...</span>
+  </div>
+</section>

@@ -1,0 +1,199 @@
+.footer {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(5, 5, 15, 0.8);
+  overflow: hidden;
+}
+
+/* ── Angular floating icons ─────────────────────────── */
+.ng-floats {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ng-icon {
+  position: absolute;
+  opacity: 0.07;
+  filter: blur(0.5px);
+}
+
+@keyframes ng-float {
+  0%, 100% { transform: translateY(0)   rotate(0deg)   scale(1); }
+  33%       { transform: translateY(-14px) rotate(6deg)  scale(1.04); }
+  66%       { transform: translateY(-6px)  rotate(-4deg) scale(0.97); }
+}
+@keyframes ng-spin-drift {
+  0%   { transform: rotate(0deg)   translateY(0); }
+  50%  { transform: rotate(180deg) translateY(-10px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+@keyframes ng-pulse-scale {
+  0%, 100% { transform: scale(1)    rotate(-8deg); opacity: 0.07; }
+  50%       { transform: scale(1.15) rotate(-8deg); opacity: 0.13; }
+}
+@keyframes ng-sway {
+  0%, 100% { transform: rotate(-12deg) translateX(0); }
+  50%       { transform: rotate(-12deg) translateX(12px); }
+}
+@keyframes ng-bob {
+  0%, 100% { transform: translateY(0)    rotate(15deg); }
+  50%       { transform: translateY(-18px) rotate(15deg); }
+}
+
+/* icon 1 — large, bottom-left, gentle float */
+.ng-1 { width: 90px; height: 90px; bottom: 10px; left: 5%;  animation: ng-float 7s ease-in-out infinite; }
+/* icon 2 — medium, bottom-center-left, slow spin */
+.ng-2 { width: 52px; height: 52px; bottom: 30px; left: 22%; animation: ng-spin-drift 12s linear infinite; animation-delay: 1.5s; }
+/* icon 3 — small, bottom-center, pulse */
+.ng-3 { width: 38px; height: 38px; bottom: 18px; left: 50%; transform: translateX(-50%) rotate(-8deg); animation: ng-pulse-scale 5s ease-in-out infinite; animation-delay: 0.8s; }
+/* icon 4 — medium, bottom-right-ish, sway */
+.ng-4 { width: 60px; height: 60px; bottom: 24px; right: 22%; animation: ng-sway 8s ease-in-out infinite; animation-delay: 2s; }
+/* icon 5 — large, bottom-right, bob */
+.ng-5 { width: 80px; height: 80px; bottom: 8px;  right: 5%;  animation: ng-bob 6s ease-in-out infinite; animation-delay: 3s; }
+
+.footer-glow {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(244, 114, 182, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.footer-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.footer-title-label {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.footer-link {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #f472b6;
+  background: rgba(244, 114, 182, 0.08);
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 24px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.footer-angular-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(221, 0, 49, 0.5));
+}
+
+.scroll-top-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(244, 114, 182, 0.08);
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f472b6;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.scroll-top-btn:hover {
+  background: rgba(244, 114, 182, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(244, 114, 182, 0.2);
+}
+
+@media (max-width: 600px) {
+  .footer-inner { padding: 40px 20px 24px; }
+  .footer-top { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+}

@@ -1,0 +1,119 @@
+<section id="home" class="hero-section">
+  <!-- Animated background blobs -->
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- Floating particles -->
+  <div class="particles-wrap" aria-hidden="true">
+    @for (p of particles; track $index) {
+      <span class="particle"
+        [style.left.%]="p.x"
+        [style.top.%]="p.y"
+        [style.fontSize.px]="p.size"
+        [style.color]="p.color"
+        [style.animationDelay.s]="p.delay"
+        [style.animationDuration.s]="p.duration">
+        {{ p.shape }}
+      </span>
+    }
+  </div>
+
+  <!-- Decorative rings -->
+  <div class="deco-ring ring-a" aria-hidden="true"></div>
+  <div class="deco-ring ring-b" aria-hidden="true"></div>
+  <div class="deco-grid" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-inner">
+      <span class="hero-greeting">✨ Hello, I'm</span>
+
+      <h1 class="hero-name">
+        @for (letter of nameLetters; track $index) {
+          <span class="name-char" [class.space]="letter === ' '">{{ letter }}</span>
+        }
+      </h1>
+
+      <div class="hero-typewriter">
+        <span class="type-prefix">I am a&nbsp;</span>
+        <span class="typed-text">{{ typedText }}</span>
+        <span class="cursor-blink">|</span>
+      </div>
+
+      <p class="hero-bio">
+        Full-stack Software Engineer specializing in Angular &amp; NestJS — building
+        enterprise-grade web applications with elegant UIs and high-performance APIs.
+      </p>
+
+      <div class="hero-tech-stack">
+        <span class="tech-badge">Angular</span>
+        <span class="tech-badge">NestJS</span>
+        <span class="tech-badge">MySQL</span>
+        <span class="tech-badge">Redis</span>
+        <span class="tech-badge">Socket.io</span>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-primary" (click)="scrollToProjects()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          View Projects
+        </button>
+        <button class="btn-secondary" (click)="scrollToAbout()">
+          About Me →
+        </button>
+      </div>
+
+      <!-- Location & contact row -->
+      <div class="hero-meta">
+        <span class="meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Tamil Nadu, India
+        </span>
+        <span class="meta-dot">·</span>
+        <span class="meta-item available">
+          <span class="status-dot"></span>
+          Available for opportunities
+        </span>
+      </div>
+    </div>
+
+    <!-- Right side avatar -->
+    <div class="hero-avatar-wrap">
+      <div class="avatar-rings">
+        <div class="avatar-ring ring-outer"></div>
+        <div class="avatar-ring ring-middle"></div>
+        <div class="avatar-ring ring-inner"></div>
+      </div>
+      <div class="avatar-core">
+        <span class="avatar-initials">VP</span>
+        <div class="avatar-sparkles">
+          <span class="avspark s1">✦</span>
+          <span class="avspark s2">✧</span>
+          <span class="avspark s3">★</span>
+          <span class="avspark s4">✿</span>
+        </div>
+      </div>
+      <div class="avatar-float-badge b1">
+        <span>⚡</span> Angular
+      </div>
+      <div class="avatar-float-badge b2">
+        <span>🚀</span> NestJS
+      </div>
+      <div class="avatar-float-badge b3">
+        <span>🗄️</span> MySQL
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" (click)="scrollToAbout()">
+    <div class="scroll-mouse">
+      <div class="scroll-dot"></div>
+    </div>
+    <span>Scroll Down</span>
+  </div>
+</section>

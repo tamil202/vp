@@ -1,0 +1,56 @@
+<section id="skills" class="skills-section">
+  <div class="skills-bg" aria-hidden="true">
+    <div class="sk-orb sk-orb-1"></div>
+    <div class="sk-orb sk-orb-2"></div>
+  </div>
+
+  <!-- Section header -->
+  <div class="skills-header">
+    <div class="reveal">
+      <span class="section-tag">My Expertise</span>
+      <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      <div class="section-divider center"></div>
+      <p class="skills-subtitle">
+        Technologies I work with to build robust, scalable applications
+      </p>
+    </div>
+  </div>
+
+  <!-- Skills grid -->
+  <div class="skills-grid">
+    @for (group of skillGroups; track group.title) {
+      <div class="skill-group-card reveal-scale" [style.transitionDelay]="(0.15 * $index) + 's'">
+        <div class="sg-header">
+          <span class="sg-icon">{{ group.icon }}</span>
+          <h3 class="sg-title">{{ group.title }}</h3>
+        </div>
+        <div class="sg-skills">
+          @for (skill of group.skills; track skill.name) {
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-percent">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill"
+                     [attr.data-level]="skill.level"
+                     [style.background]="'linear-gradient(90deg,' + skill.color + ', ' + group.color + ')'">
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Additional tech badges -->
+  <div class="tech-badges-wrap reveal">
+    <h3 class="badges-title">Also Working With</h3>
+    <div class="tech-badges">
+      @for (badge of techBadges; track badge) {
+        <span class="extra-badge">{{ badge }}</span>
+      }
+    </div>
+  </div>
+</section>

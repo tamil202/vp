@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Stat {
@@ -18,13 +18,14 @@ interface Stat {
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
+  private statsObserver: IntersectionObserver | null = null;
   private statsAnimated = false;
 
   stats: Stat[] = [
-    { value: 2, suffix: '+', label: 'Years Experience', icon: '⚡', current: 0 },
-    { value: 4, suffix: '+', label: 'Projects Completed', icon: '🚀', current: 0 },
-    { value: 2, suffix: '+', label: 'Roles Held', icon: '💼', current: 0 },
-    { value: 15, suffix: '+', label: 'Technologies', icon: '🛠️', current: 0 }
+    { value: 2,  suffix: '+', label: 'Years Experience',   icon: '⚡',  current: 0 },
+    { value: 4,  suffix: '+', label: 'Projects Completed', icon: '🚀', current: 0 },
+    { value: 2,  suffix: '+', label: 'Roles Held',         icon: '💼', current: 0 },
+    { value: 15, suffix: '+', label: 'Technologies',       icon: '🛠️', current: 0 }
   ];
 
   highlights = [
@@ -36,6 +37,8 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     { icon: '🔴', text: 'Redis caching strategies' }
   ];
 
+  constructor(private ngZone: NgZone) {}
+
   ngAfterViewInit() {
     this.setupRevealObserver();
     this.setupStatsObserver();
@@ -44,9 +47,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   setupRevealObserver() {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
     }, { threshold: 0.15 });
 
@@ -57,33 +58,39 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   setupStatsObserver() {
     const statsEl = document.querySelector('.about-stats');
     if (!statsEl) return;
-    const obs = new IntersectionObserver((entries) => {
+
+    this.statsObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !this.statsAnimated) {
         this.statsAnimated = true;
-        this.animateStats();
-        obs.disconnect();
+        // Run inside Angular zone so change detection picks up every frame
+        this.ngZone.run(() => this.animateStats());
+        this.statsObserver?.disconnect();
       }
-    }, { threshold: 0.5 });
-    obs.observe(statsEl);
+    }, { threshold: 0.3 });
+
+    this.statsObserver.observe(statsEl);
   }
 
   animateStats() {
     this.stats.forEach((stat, i) => {
-      const duration = 1500;
-      const start = performance.now();
-      const animate = (now: number) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        stat.current = Math.round(eased * stat.value);
-        if (progress < 1) requestAnimationFrame(animate);
-        else stat.current = stat.value;
-      };
-      setTimeout(() => requestAnimationFrame(animate), i * 150);
+      const duration = 1800;
+      setTimeout(() => {
+        const start = performance.now();
+        const animate = (now: number) => {
+          const elapsed  = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased    = 1 - Math.pow(1 - progress, 3);
+          stat.current   = Math.round(eased * stat.value);
+          if (progress < 1) requestAnimationFrame(animate);
+          else stat.current = stat.value;
+        };
+        requestAnimationFrame(animate);
+      }, i * 200);
     });
   }
 
   ngOnDestroy() {
     this.observer?.disconnect();
+    this.statsObserver?.disconnect();
   }
 }

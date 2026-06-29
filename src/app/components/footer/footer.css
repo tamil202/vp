@@ -15,8 +15,8 @@
 
 .ng-icon {
   position: absolute;
-  opacity: 0.07;
-  filter: blur(0.5px);
+  opacity: 0.22;
+  filter: drop-shadow(0 0 8px rgba(221, 0, 49, 0.4));
 }
 
 @keyframes ng-float {
@@ -43,15 +43,15 @@
 }
 
 /* icon 1 — large, bottom-left, gentle float */
-.ng-1 { width: 90px; height: 90px; bottom: 10px; left: 5%;  animation: ng-float 7s ease-in-out infinite; }
+.ng-1 { width: 110px; height: 110px; bottom: 8px;  left: 4%;  animation: ng-float 7s ease-in-out infinite; }
 /* icon 2 — medium, bottom-center-left, slow spin */
-.ng-2 { width: 52px; height: 52px; bottom: 30px; left: 22%; animation: ng-spin-drift 12s linear infinite; animation-delay: 1.5s; }
-/* icon 3 — small, bottom-center, pulse */
-.ng-3 { width: 38px; height: 38px; bottom: 18px; left: 50%; transform: translateX(-50%) rotate(-8deg); animation: ng-pulse-scale 5s ease-in-out infinite; animation-delay: 0.8s; }
+.ng-2 { width: 70px;  height: 70px;  bottom: 24px; left: 22%; animation: ng-spin-drift 12s linear infinite; animation-delay: 1.5s; }
+/* icon 3 — medium, bottom-center, pulse */
+.ng-3 { width: 55px;  height: 55px;  bottom: 16px; left: 50%; margin-left: -27px; animation: ng-pulse-scale 5s ease-in-out infinite; animation-delay: 0.8s; }
 /* icon 4 — medium, bottom-right-ish, sway */
-.ng-4 { width: 60px; height: 60px; bottom: 24px; right: 22%; animation: ng-sway 8s ease-in-out infinite; animation-delay: 2s; }
+.ng-4 { width: 75px;  height: 75px;  bottom: 20px; right: 22%; animation: ng-sway 8s ease-in-out infinite; animation-delay: 2s; }
 /* icon 5 — large, bottom-right, bob */
-.ng-5 { width: 80px; height: 80px; bottom: 8px;  right: 5%;  animation: ng-bob 6s ease-in-out infinite; animation-delay: 3s; }
+.ng-5 { width: 100px; height: 100px; bottom: 6px;  right: 4%;  animation: ng-bob 6s ease-in-out infinite; animation-delay: 3s; }
 
 .footer-glow {
   position: absolute;

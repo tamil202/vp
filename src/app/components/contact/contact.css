@@ -263,6 +263,29 @@ a.contact-card:hover .cc-arrow {
 
 .success-icon { font-size: 2rem; flex-shrink: 0; animation: sparkle 1s ease forwards; }
 
+/* Sending spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.sending-spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.form-submit:disabled { opacity: 0.7; cursor: not-allowed; pointer-events: none; }
+
+.form-error {
+  font-size: 0.83rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+
 .success-msg strong { display: block; color: #4ade80; margin-bottom: 4px; font-size: 1rem; }
 .success-msg p { font-size: 0.87rem; color: #64748b; }
 

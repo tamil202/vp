@@ -97,9 +97,17 @@
               <textarea id="message" [(ngModel)]="form.message" name="message"
                         placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn-primary form-submit">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              Send Message
+            @if (error) {
+              <p class="form-error">{{ error }}</p>
+            }
+            <button type="submit" class="btn-primary form-submit" [disabled]="sending">
+              @if (sending) {
+                <span class="sending-spinner"></span>
+                Sending…
+              } @else {
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              }
             </button>
           </form>
         }

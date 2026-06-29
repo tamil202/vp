@@ -55,8 +55,8 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
     },
     {
       name: 'TPS',
-      subtitle: 'Transaction Processing System',
-      description: 'High-performance transaction processing system with real-time data handling and secure financial workflows. Features advanced queue management, audit trails, and seamless API integrations for reliable transaction execution at scale.',
+      subtitle: 'Title Production Service for Automation',
+      description: 'Automated title production server that streamlines document generation workflows for mortgage and deed processing. Features intelligent automation pipelines, real-time status tracking, and high-throughput API integrations for reliable production at scale.',
       tech: ['Angular', 'NestJS', 'MySQL', 'Redis', 'REST API', 'TypeScript'],
       color: '#ec4899',
       gradient: 'linear-gradient(135deg, rgba(236,72,153,0.15), rgba(168,85,247,0.08))',

@@ -7,6 +7,8 @@
     <div class="orb orb-4"></div>
   </div>
 
+  <app-tech-icons variant="hero"></app-tech-icons>
+
   <!-- Floating particles -->
   <div class="particles-wrap" aria-hidden="true">
     @for (p of particles; track $index) {
@@ -62,6 +64,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           View Projects
         </button>
+        <a class="btn-secondary" href="/Vishnuprabha-Resume.pdf" download="Vishnuprabha-Resume.pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
         <button class="btn-secondary" (click)="scrollToAbout()">
           About Me →
         </button>

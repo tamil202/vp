@@ -1,0 +1,93 @@
+:host {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.tech-icon {
+  position: absolute;
+  opacity: 0.14;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+}
+
+@keyframes tech-float {
+  0%, 100% { transform: translateY(0)     rotate(0deg)   scale(1); }
+  33%       { transform: translateY(-16px) rotate(6deg)   scale(1.04); }
+  66%       { transform: translateY(-6px)  rotate(-4deg)  scale(0.97); }
+}
+
+@keyframes tech-spin-drift {
+  0%   { transform: rotate(0deg)   translateY(0); }
+  50%  { transform: rotate(180deg) translateY(-12px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+@keyframes tech-pulse {
+  0%, 100% { transform: scale(1)     rotate(-8deg); opacity: 0.1; }
+  50%       { transform: scale(1.15) rotate(-8deg); opacity: 0.18; }
+}
+
+@keyframes tech-sway {
+  0%, 100% { transform: rotate(-10deg) translateX(0); }
+  50%       { transform: rotate(-10deg) translateX(14px); }
+}
+
+@keyframes tech-bob {
+  0%, 100% { transform: translateY(0)     rotate(12deg); }
+  50%       { transform: translateY(-18px) rotate(12deg); }
+}
+
+/* ---- Hero ---- */
+:host(.variant-hero) .tech-icon:nth-child(1) { width: 60px; height: 60px; top: 14%; left: 4%;  animation: tech-float 8s ease-in-out infinite; }
+:host(.variant-hero) .tech-icon:nth-child(2) { width: 50px; height: 50px; top: 70%; left: 8%;  animation: tech-bob 7s ease-in-out infinite; animation-delay: 1s; }
+:host(.variant-hero) .tech-icon:nth-child(3) { width: 55px; height: 55px; top: 8%;  right: 6%; animation: tech-sway 9s ease-in-out infinite; animation-delay: 0.5s; }
+:host(.variant-hero) .tech-icon:nth-child(4) { width: 65px; height: 65px; top: 60%; right: 4%; animation: tech-spin-drift 14s linear infinite; animation-delay: 2s; }
+:host(.variant-hero) .tech-icon:nth-child(5) { width: 45px; height: 45px; bottom: 6%; left: 46%; animation: tech-pulse 6s ease-in-out infinite; animation-delay: 1.5s; }
+
+/* ---- About ---- */
+:host(.variant-about) .tech-icon:nth-child(1) { width: 55px; height: 55px; top: 6%;  left: 2%;  animation: tech-sway 8s ease-in-out infinite; }
+:host(.variant-about) .tech-icon:nth-child(2) { width: 60px; height: 60px; bottom: 10%; left: 6%; animation: tech-float 9s ease-in-out infinite; animation-delay: 1s; }
+:host(.variant-about) .tech-icon:nth-child(3) { width: 50px; height: 50px; top: 10%; right: 4%; animation: tech-bob 7s ease-in-out infinite; animation-delay: 0.6s; }
+:host(.variant-about) .tech-icon:nth-child(4) { width: 55px; height: 55px; bottom: 8%; right: 6%; animation: tech-pulse 6.5s ease-in-out infinite; animation-delay: 1.4s; }
+:host(.variant-about) .tech-icon:nth-child(5) { width: 42px; height: 42px; top: 46%; right: 1%; animation: tech-spin-drift 15s linear infinite; animation-delay: 2s; }
+
+/* ---- Skills ---- */
+:host(.variant-skills) .tech-icon:nth-child(1) { width: 55px; height: 55px; top: 8%;  right: 5%; animation: tech-float 8s ease-in-out infinite; }
+:host(.variant-skills) .tech-icon:nth-child(2) { width: 65px; height: 65px; bottom: 12%; right: 8%; animation: tech-bob 7.5s ease-in-out infinite; animation-delay: 1s; }
+:host(.variant-skills) .tech-icon:nth-child(3) { width: 50px; height: 50px; top: 12%; left: 4%; animation: tech-sway 9s ease-in-out infinite; animation-delay: 0.4s; }
+:host(.variant-skills) .tech-icon:nth-child(4) { width: 58px; height: 58px; bottom: 8%; left: 6%; animation: tech-pulse 6s ease-in-out infinite; animation-delay: 1.6s; }
+:host(.variant-skills) .tech-icon:nth-child(5) { width: 42px; height: 42px; top: 50%; left: 1%; animation: tech-spin-drift 16s linear infinite; animation-delay: 2.2s; }
+
+/* ---- Experience ---- */
+:host(.variant-experience) .tech-icon:nth-child(1) { width: 60px; height: 60px; top: 6%;  right: 8%;  animation: tech-float 8s ease-in-out infinite; }
+:host(.variant-experience) .tech-icon:nth-child(2) { width: 70px; height: 70px; top: 30%; right: 3%;  animation: tech-bob 7s ease-in-out infinite; animation-delay: 0.8s; }
+:host(.variant-experience) .tech-icon:nth-child(3) { width: 50px; height: 50px; top: 55%; right: 10%; animation: tech-sway 9s ease-in-out infinite; animation-delay: 0.3s; }
+:host(.variant-experience) .tech-icon:nth-child(4) { width: 55px; height: 55px; top: 78%; right: 4%;  animation: tech-pulse 6.4s ease-in-out infinite; animation-delay: 1.3s; }
+:host(.variant-experience) .tech-icon:nth-child(5) { width: 45px; height: 45px; top: 95%; right: 12%; animation: tech-spin-drift 14s linear infinite; animation-delay: 1.8s; }
+
+/* ---- Projects ---- */
+:host(.variant-projects) .tech-icon:nth-child(1) { width: 55px; height: 55px; top: 5%;  left: 3%;  animation: tech-sway 8s ease-in-out infinite; }
+:host(.variant-projects) .tech-icon:nth-child(2) { width: 62px; height: 62px; bottom: 8%; left: 5%; animation: tech-float 7.5s ease-in-out infinite; animation-delay: 1s; }
+:host(.variant-projects) .tech-icon:nth-child(3) { width: 50px; height: 50px; top: 8%;  right: 4%; animation: tech-bob 8.5s ease-in-out infinite; animation-delay: 0.5s; }
+:host(.variant-projects) .tech-icon:nth-child(4) { width: 58px; height: 58px; bottom: 10%; right: 6%; animation: tech-pulse 6s ease-in-out infinite; animation-delay: 1.5s; }
+:host(.variant-projects) .tech-icon:nth-child(5) { width: 42px; height: 42px; top: 48%; left: 1%; animation: tech-spin-drift 15s linear infinite; animation-delay: 2s; }
+
+/* ---- Contact ---- */
+:host(.variant-contact) .tech-icon:nth-child(1) { width: 55px; height: 55px; top: 8%;  left: 4%;  animation: tech-float 8s ease-in-out infinite; }
+:host(.variant-contact) .tech-icon:nth-child(2) { width: 60px; height: 60px; bottom: 10%; left: 6%; animation: tech-bob 7s ease-in-out infinite; animation-delay: 1s; }
+:host(.variant-contact) .tech-icon:nth-child(3) { width: 50px; height: 50px; top: 10%; right: 5%; animation: tech-sway 9s ease-in-out infinite; animation-delay: 0.6s; }
+:host(.variant-contact) .tech-icon:nth-child(4) { width: 55px; height: 55px; bottom: 8%; right: 4%; animation: tech-pulse 6.2s ease-in-out infinite; animation-delay: 1.4s; }
+:host(.variant-contact) .tech-icon:nth-child(5) { width: 42px; height: 42px; top: 45%; right: 1%; animation: tech-spin-drift 16s linear infinite; animation-delay: 1.9s; }
+
+@media (max-width: 768px) {
+  .tech-icon { opacity: 0.1; }
+  :host(.variant-hero) .tech-icon:nth-child(4),
+  :host(.variant-about) .tech-icon:nth-child(5),
+  :host(.variant-skills) .tech-icon:nth-child(5),
+  :host(.variant-experience) .tech-icon:nth-child(2),
+  :host(.variant-projects) .tech-icon:nth-child(5),
+  :host(.variant-contact) .tech-icon:nth-child(5) { display: none; }
+}

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TechIconsComponent } from '../tech-icons/tech-icons';
 
 interface Skill { name: string; level: number; color: string; }
 interface SkillGroup { title: string; icon: string; color: string; skills: Skill[]; }
@@ -7,7 +8,7 @@ interface SkillGroup { title: string; icon: string; color: string; skills: Skill
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TechIconsComponent],
   templateUrl: './skills.html',
   styleUrl: './skills.css'
 })

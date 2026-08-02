@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { TechIconsComponent } from '../tech-icons/tech-icons';
 
 // ─── EmailJS config ───────────────────────────────────────────────
 // 1. Sign up free at https://www.emailjs.com
@@ -18,7 +19,7 @@ const EJ_PUBLIC   = 'YOUR_PUBLIC_KEY';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TechIconsComponent],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
@@ -38,9 +39,7 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   ];
 
   socials = [
-    { icon: 'GH', label: 'GitHub',   color: '#f1f5f9' },
-    { icon: 'LI', label: 'LinkedIn', color: '#0ea5e9' },
-    { icon: 'TW', label: 'Twitter',  color: '#38bdf8' }
+    { icon: 'LI', label: 'LinkedIn', color: '#0ea5e9', href: 'https://www.linkedin.com/in/vishnuprabhak' }
   ];
 
   ngAfterViewInit() {

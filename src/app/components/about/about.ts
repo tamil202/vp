@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TechIconsComponent } from '../tech-icons/tech-icons';
 
 interface Stat {
   value: number;
@@ -12,7 +13,7 @@ interface Stat {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TechIconsComponent],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
@@ -24,7 +25,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   stats: Stat[] = [
     { value: 2,  suffix: '+', label: 'Years Experience',   icon: '⚡',  current: 0 },
     { value: 4,  suffix: '+', label: 'Projects Completed', icon: '🚀', current: 0 },
-    { value: 2,  suffix: '+', label: 'Roles Held',         icon: '💼', current: 0 },
+    { value: 4,  suffix: '+', label: 'Roles Held',         icon: '💼', current: 0 },
     { value: 15, suffix: '+', label: 'Technologies',       icon: '🛠️', current: 0 }
   ];
 

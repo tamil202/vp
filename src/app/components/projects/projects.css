@@ -181,7 +181,17 @@
   font-weight: 600;
   background: transparent;
   transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
 }
+
+.project-card.active .project-tech { opacity: 1; transform: translateY(0) scale(1); }
+.project-card.active .project-tech:nth-child(1) { transition-delay: 0.35s; }
+.project-card.active .project-tech:nth-child(2) { transition-delay: 0.42s; }
+.project-card.active .project-tech:nth-child(3) { transition-delay: 0.49s; }
+.project-card.active .project-tech:nth-child(4) { transition-delay: 0.56s; }
+.project-card.active .project-tech:nth-child(5) { transition-delay: 0.63s; }
+.project-card.active .project-tech:nth-child(6) { transition-delay: 0.7s; }
 
 .project-tech:hover {
   opacity: 0.8;

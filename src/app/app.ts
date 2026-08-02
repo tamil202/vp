@@ -1,17 +1,20 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
+import { PreloaderComponent } from './components/preloader/preloader';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent, PreloaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit {
   @ViewChild('cursor') cursorEl!: ElementRef;
   @ViewChild('cursorFollower') followerEl!: ElementRef;
+
+  showPreloader = true;
 
   private mouseX = 0;
   private mouseY = 0;

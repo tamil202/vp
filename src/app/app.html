@@ -1,3 +1,6 @@
+@if (showPreloader) {
+  <app-preloader (done)="showPreloader = false"></app-preloader>
+}
 <div class="cursor" #cursor></div>
 <div class="cursor-follower" #cursorFollower></div>
 <app-navbar></app-navbar>

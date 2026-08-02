@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TechIconsComponent } from '../tech-icons/tech-icons';
 
 interface Experience {
   period: string;
@@ -14,55 +15,42 @@ interface Experience {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TechIconsComponent],
   templateUrl: './experience.html',
   styleUrl: './experience.css'
 })
 export class ExperienceComponent implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
+  private lineObserver: IntersectionObserver | null = null;
 
   experiences: Experience[] = [
     {
-      period: '2026 — Present',
+      period: 'Jan 2024 — Present',
       role: 'Software Engineer',
       company: 'Stellar Innovation',
       type: 'Full-time',
       color: '#f472b6',
       points: [
-        'Designed and developed RESTful backend services using NestJS and MySQL with performance optimization',
-        'Built scalable Angular modules and reusable UI components with virtual scrolling support',
-        'Optimized change detection strategies to support high-volume data tables',
-        'Debugged and resolved critical production issues across the full application stack'
+        'Designed and built RESTful APIs using NestJS, Node.js & Express.js with modular, maintainable service layers',
+        'Modeled MySQL schemas with Prisma & Sequelize, adding JWT auth and Redis caching',
+        'Built scalable Angular modules with virtual scrolling and optimized change detection for high-volume data tables',
+        'Promoted twice in two years — Junior Software Developer → Junior Software Engineer → Software Engineer'
       ],
       techs: ['Angular', 'NestJS', 'MySQL', 'Redis', 'TypeScript']
     },
     {
-      period: '2025 — 2026',
-      role: 'Junior Software Engineer',
-      company: 'Stellar Innovation',
+      period: 'Sep 2022 — Dec 2023',
+      role: 'Associate Software Engineer — Marketing Professional',
+      company: 'Webberax',
       type: 'Full-time',
       color: '#a855f7',
       points: [
-        'Implemented frontend features using Angular, TypeScript, and RxJS with REST API integration',
-        'Handled validation logic and error boundary patterns across modules',
-        'Resolved production defects across frontend and backend modules',
-        'Supported release stabilization and deployment workflows'
+        'Planned and executed large-scale bulk email marketing campaigns via PMTA on a dedicated IP, maximizing inbox placement',
+        'Configured mail server infrastructure — DKIM, SPF, DMARC, and MX records — to meet email authentication standards',
+        'Monitored server logs, bounce rates, and blacklist status to diagnose and resolve deliverability issues',
+        'Maintained dedicated IP reputation through warm-up schedules and volume management across campaigns'
       ],
-      techs: ['Angular', 'RxJS', 'NestJS', 'TypeScript', 'JWT']
-    },
-    {
-      period: '2024 — 2025',
-      role: 'Junior Software Developer',
-      company: 'Stellar Innovation',
-      type: 'Full-time',
-      color: '#8b5cf6',
-      points: [
-        'Developed Angular components and assisted in integrating backend APIs in production',
-        'Built reusable UI modules following Angular best practices',
-        'Supported feature enhancements and bug fixes collaborating with senior developers',
-        'Contributed to code reviews and technical documentation'
-      ],
-      techs: ['Angular', 'TypeScript', 'REST API', 'Git', 'Jira']
+      techs: ['PMTA', 'DKIM / SPF / DMARC', 'Mail Server Admin', 'Deliverability']
     }
   ];
 
@@ -77,9 +65,21 @@ export class ExperienceComponent implements AfterViewInit, OnDestroy {
 
     document.querySelectorAll('#experience .reveal, #experience .reveal-left, #experience .reveal-right, #experience .reveal-scale')
       .forEach(el => this.observer!.observe(el));
+
+    const lineFill = document.querySelector('.timeline-line-fill');
+    if (lineFill) {
+      this.lineObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          lineFill.classList.add('drawn');
+          this.lineObserver?.disconnect();
+        }
+      }, { threshold: 0.15 });
+      this.lineObserver.observe(lineFill);
+    }
   }
 
   ngOnDestroy() {
     this.observer?.disconnect();
+    this.lineObserver?.disconnect();
   }
 }

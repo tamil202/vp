@@ -27,6 +27,9 @@ body {
   cursor: none;
 }
 
+/* Hero name letters stay paused (see hero.css .name-char) until the preloader clears */
+body.intro-done .name-char { animation-play-state: running; }
+
 /* Custom Cursor */
 .cursor {
   position: fixed;

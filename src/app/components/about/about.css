@@ -196,7 +196,14 @@
   transform: translateY(-2px);
 }
 
-.h-icon { font-size: 1.1rem; flex-shrink: 0; }
+.h-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.highlight-item:hover .h-icon { transform: scale(1.25) rotate(10deg); }
 
 .h-text {
   font-size: 0.85rem;
@@ -271,7 +278,14 @@
 
 .stat-card:hover::before { opacity: 1; }
 
-.stat-icon { display: block; font-size: 1.8rem; margin-bottom: 12px; }
+.stat-icon {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card:hover .stat-icon { transform: scale(1.2) rotate(-8deg); }
 
 .stat-number {
   display: flex;

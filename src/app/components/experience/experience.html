@@ -4,6 +4,8 @@
     <div class="exp-orb exp-orb-2"></div>
   </div>
 
+  <app-tech-icons variant="experience"></app-tech-icons>
+
   <!-- Header -->
   <div class="exp-header">
     <div class="reveal">
@@ -20,11 +22,7 @@
     </div>
 
     @for (exp of experiences; track $index) {
-      <div class="timeline-item"
-           [class.left]="$index % 2 === 0"
-           [class.right]="$index % 2 !== 0"
-           [class.reveal-left]="$index % 2 === 0"
-           [class.reveal-right]="$index % 2 !== 0"
+      <div class="timeline-item reveal-left"
            [style.transitionDelay]="($index * 0.15) + 's'">
 
         <!-- Timeline dot -->

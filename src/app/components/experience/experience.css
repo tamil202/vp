@@ -38,21 +38,20 @@
 
 /* Timeline wrapper */
 .timeline-wrap {
-  max-width: 1000px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
   z-index: 1;
 }
 
-/* Center vertical line */
+/* Vertical line, left-aligned */
 .timeline-line {
   position: absolute;
-  left: 50%;
+  left: 24px;
   top: 0;
   bottom: 0;
   width: 2px;
-  transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.06);
   overflow: hidden;
 }
@@ -61,42 +60,30 @@
   width: 100%;
   height: 0;
   background: linear-gradient(180deg, #f472b6, #a855f7, #8b5cf6);
-  transition: height 2s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: timeline-draw 3s ease forwards 0.5s;
+  transition: height 2.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes timeline-draw {
-  to { height: 100%; }
-}
+.timeline-line-fill.drawn { height: 100%; }
 
-/* Timeline items */
+/* Timeline items — single column, left-aligned */
 .timeline-item {
   position: relative;
-  width: 46%;
-  margin-bottom: 60px;
+  width: 100%;
+  padding-left: 64px;
+  margin-bottom: 48px;
 }
 
-.timeline-item.left { margin-right: auto; }
-.timeline-item.right { margin-left: auto; }
+.timeline-item:last-child { margin-bottom: 0; }
 
-/* Dot on the center line */
+/* Dot on the line */
 .timeline-dot {
   position: absolute;
+  left: 16px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
   top: 28px;
   z-index: 2;
-}
-
-.timeline-item.left .timeline-dot {
-  right: -10%;
-  transform: translateX(50%);
-}
-
-.timeline-item.right .timeline-dot {
-  left: -10%;
-  transform: translateX(-50%);
 }
 
 .dot-pulse {
@@ -136,19 +123,8 @@
 
 .exp-card:hover::after { opacity: 1; }
 
-/* Card connector arrow */
-.timeline-item.left .exp-card::before {
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: 26px;
-  width: 0; height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(255, 255, 255, 0.04);
-}
-
-.timeline-item.right .exp-card::before {
+/* Card connector arrow, pointing back to the dot */
+.exp-card::before {
   content: '';
   position: absolute;
   left: -10px;
@@ -221,7 +197,17 @@
   font-size: 0.85rem;
   color: #94a3b8;
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.timeline-item.active .exp-points li { opacity: 1; transform: translateY(0); }
+.timeline-item.active .exp-points li:nth-child(1) { transition-delay: 0.15s; }
+.timeline-item.active .exp-points li:nth-child(2) { transition-delay: 0.3s; }
+.timeline-item.active .exp-points li:nth-child(3) { transition-delay: 0.45s; }
+.timeline-item.active .exp-points li:nth-child(4) { transition-delay: 0.6s; }
+.timeline-item.active .exp-points li:nth-child(5) { transition-delay: 0.75s; }
 
 .point-dot {
   width: 6px;
@@ -245,7 +231,17 @@
   font-size: 0.75rem;
   font-weight: 600;
   transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
 }
+
+.timeline-item.active .exp-tech { opacity: 1; transform: translateY(0) scale(1); }
+.timeline-item.active .exp-tech:nth-child(1) { transition-delay: 0.85s; }
+.timeline-item.active .exp-tech:nth-child(2) { transition-delay: 0.92s; }
+.timeline-item.active .exp-tech:nth-child(3) { transition-delay: 0.99s; }
+.timeline-item.active .exp-tech:nth-child(4) { transition-delay: 1.06s; }
+.timeline-item.active .exp-tech:nth-child(5) { transition-delay: 1.13s; }
+.timeline-item.active .exp-tech:nth-child(6) { transition-delay: 1.2s; }
 
 .exp-tech:hover {
   opacity: 0.8;
@@ -254,26 +250,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .timeline-line { left: 24px; }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 60px;
-    margin-bottom: 40px;
-  }
-
-  .timeline-item.left,
-  .timeline-item.right { margin: 0 0 40px; }
-
-  .timeline-item.left .timeline-dot,
-  .timeline-item.right .timeline-dot {
-    left: 16px;
-    right: auto;
-    transform: none;
-  }
-
-  .timeline-item.left .exp-card::before,
-  .timeline-item.right .exp-card::before { display: none; }
+  .timeline-item { padding-left: 52px; margin-bottom: 40px; }
+  .timeline-line { left: 20px; }
+  .timeline-dot { left: 12px; }
+  .exp-card::before { display: none; }
 }
 
 @media (max-width: 480px) {

@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, ElementRef, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
+import { TechIconsComponent } from '../tech-icons/tech-icons';
 
 interface Particle {
   x: number;
@@ -15,11 +16,11 @@ interface Particle {
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TechIconsComponent],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })
-export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HeroComponent implements OnInit, OnDestroy {
   particles: Particle[] = [];
   nameLetters = 'VISHNUPRABHA'.split('');
   typedText = 'Software Engineer';
@@ -27,16 +28,16 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   private currentRole = 0;
   private currentChar = 17; // length of 'Software Engineer'
   private isDeleting = false;
+  private onIntroComplete = () => {
+    this.startTypewriter();
+    this.animateHero();
+  };
 
   roles = ['Software Engineer', 'Full-Stack Developer', 'Angular Specialist', 'NestJS Expert'];
 
   ngOnInit() {
     this.initParticles();
-    this.startTypewriter();
-  }
-
-  ngAfterViewInit() {
-    this.animateHero();
+    document.addEventListener('intro-complete', this.onIntroComplete, { once: true });
   }
 
   initParticles() {
@@ -114,5 +115,6 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     clearTimeout(this.typeInterval);
+    document.removeEventListener('intro-complete', this.onIntroComplete);
   }
 }

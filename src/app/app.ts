@@ -2,11 +2,12 @@ import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 import { PreloaderComponent } from './components/preloader/preloader';
+import { ChatbotComponent } from './components/chatbot/chatbot';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, PreloaderComponent],
+  imports: [RouterOutlet, NavbarComponent, PreloaderComponent, ChatbotComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

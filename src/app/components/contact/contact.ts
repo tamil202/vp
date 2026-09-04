@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
 
 // ─── EmailJS config ───────────────────────────────────────────────
 // 1. Sign up free at https://www.emailjs.com
@@ -19,7 +20,7 @@ const EJ_PUBLIC   = 'YOUR_PUBLIC_KEY';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, TechIconsComponent],
+  imports: [CommonModule, FormsModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
@@ -34,7 +35,6 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
 
   contactInfo = [
     { icon: '📧', label: 'Email',    value: 'vishnukprahbak@gmail.com', href: 'mailto:vishnukprahbak@gmail.com' },
-    { icon: '📞', label: 'Phone',    value: '+91 93441 54479',           href: 'tel:+919344154479' },
     { icon: '📍', label: 'Location', value: 'Tamil Nadu, India',         href: null }
   ];
 

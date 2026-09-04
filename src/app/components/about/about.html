@@ -1,6 +1,6 @@
 <section id="about" class="about-section">
   <!-- Background -->
-  <div class="about-bg" aria-hidden="true">
+  <div class="about-bg" aria-hidden="true" [appParallax]="0.18">
     <div class="about-orb about-orb-1"></div>
     <div class="about-orb about-orb-2"></div>
   </div>
@@ -29,10 +29,6 @@
         <a href="mailto:vishnukprahbak@gmail.com" class="contact-quick-item">
           <span class="cq-icon">📧</span>
           <span>vishnukprahbak&#64;gmail.com</span>
-        </a>
-        <a href="tel:+919344154479" class="contact-quick-item">
-          <span class="cq-icon">📞</span>
-          <span>+91 93441 54479</span>
         </a>
         <div class="contact-quick-item">
           <span class="cq-icon">📍</span>
@@ -74,12 +70,23 @@
         }
       </div>
 
-      <!-- Education card -->
-      <div class="education-card reveal" style="transition-delay:0.4s">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-info">
-          <span class="edu-degree">B.E — PSNA College of Engineering &amp; Technology</span>
-          <span class="edu-year">Dindigul · 2018 – 2022</span>
+      <!-- Education + Certifications -->
+      <div class="credentials-row reveal" style="transition-delay:0.4s">
+        <div class="education-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-info">
+            <span class="edu-degree">B.E — PSNA College of Engineering &amp; Technology</span>
+            <span class="edu-year">Dindigul · 2018 – 2022 · CGPA 7.9</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="edu-icon">📜</div>
+          <div class="edu-info">
+            @for (cert of certifications; track cert.title) {
+              <span class="cert-item"><strong>{{ cert.title }}</strong> — {{ cert.issuer }}</span>
+            }
+          </div>
         </div>
       </div>
     </div>

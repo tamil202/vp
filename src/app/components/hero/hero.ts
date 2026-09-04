@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
 
 interface Particle {
   x: number;
@@ -16,7 +17,7 @@ interface Particle {
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, TechIconsComponent],
+  imports: [CommonModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })

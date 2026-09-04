@@ -211,16 +211,30 @@
   color: #cbd5e1;
 }
 
-/* Education card */
-.education-card {
+/* Education + Certifications */
+.credentials-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.education-card, .cert-card {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 16px 20px;
+  border-radius: 14px;
+}
+
+.education-card {
   background: rgba(251, 191, 36, 0.04);
   border: 1px solid rgba(251, 191, 36, 0.15);
-  border-radius: 14px;
-  margin-top: 4px;
+}
+
+.cert-card {
+  background: rgba(168, 85, 247, 0.04);
+  border: 1px solid rgba(168, 85, 247, 0.15);
 }
 
 .edu-icon { font-size: 1.5rem; flex-shrink: 0; }
@@ -236,6 +250,16 @@
 .edu-year {
   font-size: 0.8rem;
   color: #64748b;
+}
+
+.cert-item {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.cert-item strong {
+  color: #e2e8f0;
+  font-weight: 600;
 }
 
 /* Stats row */

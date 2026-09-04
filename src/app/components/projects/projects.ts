@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
 
 interface Project {
   name: string;
@@ -16,7 +17,7 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, TechIconsComponent],
+  imports: [CommonModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.css'
 })

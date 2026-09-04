@@ -1,6 +1,12 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
+
+interface ExperienceGroup {
+  label: string;
+  points: string[];
+}
 
 interface Experience {
   period: string;
@@ -8,14 +14,14 @@ interface Experience {
   company: string;
   type: string;
   color: string;
-  points: string[];
+  groups: ExperienceGroup[];
   techs: string[];
 }
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, TechIconsComponent],
+  imports: [CommonModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './experience.html',
   styleUrl: './experience.css'
 })
@@ -30,11 +36,30 @@ export class ExperienceComponent implements AfterViewInit, OnDestroy {
       company: 'Stellar Innovation',
       type: 'Full-time',
       color: '#f472b6',
-      points: [
-        'Designed and built RESTful APIs using NestJS, Node.js & Express.js with modular, maintainable service layers',
-        'Modeled MySQL schemas with Prisma & Sequelize, adding JWT auth and Redis caching',
-        'Built scalable Angular modules with virtual scrolling and optimized change detection for high-volume data tables',
-        'Promoted twice in two years — Junior Software Developer → Junior Software Engineer → Software Engineer'
+      groups: [
+        {
+          label: 'Backend',
+          points: [
+            'Designed and built RESTful APIs using NestJS, Node.js & Express.js with modular, maintainable service layers',
+            'Modeled MySQL schemas with Prisma & Sequelize ORMs, adding JWT auth and Redis caching for secure, high-performance access',
+            'Profiled and resolved backend performance bottlenecks, reducing query latency under production load'
+          ]
+        },
+        {
+          label: 'Frontend',
+          points: [
+            'Built scalable Angular modules and reusable UI component libraries used across multiple internal applications',
+            'Implemented virtual scrolling and optimized change detection for smooth rendering of high-volume data tables',
+            'Developed features end-to-end with Angular, TypeScript, RxJS, NgRx & Angular Signals, integrating REST APIs with full validation'
+          ]
+        },
+        {
+          label: 'Growth',
+          points: [
+            'Investigated and resolved production defects across frontend and backend, supporting multiple stable release cycles',
+            'Promoted twice in two years — Junior Software Developer → Junior Software Engineer → Software Engineer'
+          ]
+        }
       ],
       techs: ['Angular', 'NestJS', 'MySQL', 'Redis', 'TypeScript']
     },
@@ -44,11 +69,16 @@ export class ExperienceComponent implements AfterViewInit, OnDestroy {
       company: 'Webberax',
       type: 'Full-time',
       color: '#a855f7',
-      points: [
-        'Planned and executed large-scale bulk email marketing campaigns via PMTA on a dedicated IP, maximizing inbox placement',
-        'Configured mail server infrastructure — DKIM, SPF, DMARC, and MX records — to meet email authentication standards',
-        'Monitored server logs, bounce rates, and blacklist status to diagnose and resolve deliverability issues',
-        'Maintained dedicated IP reputation through warm-up schedules and volume management across campaigns'
+      groups: [
+        {
+          label: '',
+          points: [
+            'Planned and executed large-scale bulk email marketing campaigns via PMTA on a dedicated IP, maximizing inbox placement',
+            'Configured mail server infrastructure — DKIM, SPF, DMARC, and MX records — to meet email authentication standards',
+            'Monitored server logs, bounce rates, and blacklist status to diagnose and resolve deliverability issues',
+            'Maintained dedicated IP reputation through warm-up schedules and volume management across campaigns'
+          ]
+        }
       ],
       techs: ['PMTA', 'DKIM / SPF / DMARC', 'Mail Server Admin', 'Deliverability']
     }

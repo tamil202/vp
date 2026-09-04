@@ -1,5 +1,5 @@
 <section id="experience" class="exp-section">
-  <div class="exp-bg" aria-hidden="true">
+  <div class="exp-bg" aria-hidden="true" [appParallax]="0.15">
     <div class="exp-orb exp-orb-1"></div>
     <div class="exp-orb exp-orb-2"></div>
   </div>
@@ -49,14 +49,19 @@
           <div class="exp-divider" [style.background]="'linear-gradient(90deg,' + exp.color + ', transparent)'"></div>
 
           <!-- Points -->
-          <ul class="exp-points">
-            @for (point of exp.points; track $index) {
-              <li>
-                <span class="point-dot" [style.background]="exp.color"></span>
-                {{ point }}
-              </li>
+          @for (group of exp.groups; track group.label) {
+            @if (group.label) {
+              <h4 class="exp-group-label" [style.color]="exp.color">{{ group.label }}</h4>
             }
-          </ul>
+            <ul class="exp-points">
+              @for (point of group.points; track $index) {
+                <li>
+                  <span class="point-dot" [style.background]="exp.color"></span>
+                  {{ point }}
+                </li>
+              }
+            </ul>
+          }
 
           <!-- Tech tags -->
           <div class="exp-techs">

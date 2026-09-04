@@ -182,13 +182,26 @@
   opacity: 0.3;
 }
 
+.exp-group-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.85;
+  margin: 14px 0 8px;
+}
+
+.exp-group-label:first-of-type { margin-top: 0; }
+
 .exp-points {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 6px;
 }
+
+.exp-points:last-of-type { margin-bottom: 18px; }
 
 .exp-points li {
   display: flex;

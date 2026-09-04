@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
 
 interface Stat {
   value: number;
@@ -13,7 +14,7 @@ interface Stat {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, TechIconsComponent],
+  imports: [CommonModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
@@ -36,6 +37,11 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     { icon: '🎨', text: 'Reusable UI component systems' },
     { icon: '🗄️', text: 'MySQL database schema design' },
     { icon: '🔴', text: 'Redis caching strategies' }
+  ];
+
+  certifications = [
+    { title: 'Front-End Developer', issuer: 'Besant Technologies' },
+    { title: 'Embedded and IoT Programming', issuer: 'Tessolve' }
   ];
 
   constructor(private ngZone: NgZone) {}

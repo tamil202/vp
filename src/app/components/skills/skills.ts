@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TechIconsComponent } from '../tech-icons/tech-icons';
+import { ParallaxDirective } from '../../directives/parallax';
 
 interface Skill { name: string; level: number; color: string; }
 interface SkillGroup { title: string; icon: string; color: string; skills: Skill[]; }
@@ -8,7 +9,7 @@ interface SkillGroup { title: string; icon: string; color: string; skills: Skill
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, TechIconsComponent],
+  imports: [CommonModule, TechIconsComponent, ParallaxDirective],
   templateUrl: './skills.html',
   styleUrl: './skills.css'
 })
@@ -49,11 +50,20 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
         { name: 'Git / GitHub', level: 88, color: '#8b5cf6' },
         { name: 'Database Design', level: 85, color: '#a855f7' }
       ]
+    },
+    {
+      title: 'AI Tools', icon: '🤖', color: '#ec4899',
+      skills: [
+        { name: 'Claude Code', level: 90, color: '#f472b6' },
+        { name: 'Codex', level: 85, color: '#a855f7' },
+        { name: 'Gemini CLI', level: 82, color: '#8b5cf6' },
+        { name: 'Antigravity', level: 78, color: '#ec4899' }
+      ]
     }
   ];
 
   techBadges = [
-    'JavaScript', 'SQL', 'Jira', 'GitLab', 'Claude Code', 'Codex', 'Gemini CLI', 'Antigravity'
+    'JavaScript', 'SQL', 'Jira', 'GitLab'
   ];
 
   ngAfterViewInit() {

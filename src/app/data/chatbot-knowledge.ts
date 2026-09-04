@@ -48,23 +48,23 @@ export const knowledgeBase: KnowledgeEntry[] = [
     id: 'skills-frontend',
     questions: [
       'angular skills', 'frontend skills', 'front-end experience', 'does he know react',
-      'rxjs', 'typescript experience', 'what frontend framework'
+      'rxjs', 'typescript experience', 'what frontend framework', 'frontend tech stack'
     ],
     answer: "He specializes in Angular rather than React — Angular, TypeScript, RxJS, NgRx, Angular Signals, HTML5/CSS3, and Tailwind CSS. He builds reusable component libraries and optimizes change detection for high-volume data tables."
   },
   {
     id: 'skills-backend',
-    questions: ['backend skills', 'nestjs experience', 'node.js', 'api development', 'express js', 'server side'],
+    questions: ['backend skills', 'nestjs experience', 'node.js', 'api development', 'express js', 'server side', 'backend tech stack'],
     answer: 'Backend: NestJS, Node.js, Express.js, REST API design, JWT authentication, and API performance optimization.'
   },
   {
     id: 'skills-database',
-    questions: ['database skills', 'mysql experience', 'sql', 'prisma', 'redis', 'sequelize', 'caching'],
+    questions: ['database skills', 'mysql experience', 'sql', 'prisma', 'redis', 'sequelize', 'caching', 'database tech stack'],
     answer: 'Database & caching: MySQL, Prisma ORM, Sequelize ORM, SQL, database schema design, and Redis for caching high-traffic lookups.'
   },
   {
     id: 'ai-tools',
-    questions: ['ai tools', 'claude', 'chatgpt', 'codex', 'gemini cli', 'copilot', 'does he use ai'],
+    questions: ['ai tools', 'claude', 'chatgpt', 'codex', 'gemini cli', 'copilot'],
     answer: 'He works regularly with AI coding tools — Claude Code, Codex, Gemini CLI, and Antigravity — including building this very chatbot!'
   },
   {
@@ -104,7 +104,10 @@ export const knowledgeBase: KnowledgeEntry[] = [
   },
   {
     id: 'contact',
-    questions: ['contact', 'email', 'reach him', 'hire him', 'linkedin', 'get in touch', 'phone number'],
+    questions: [
+      'contact', 'email', 'reach him', 'hire him', 'linkedin', 'get in touch', 'phone number',
+      'where is he located', 'where does he live', 'location', 'based in', 'which city', 'time zone'
+    ],
     answer: "Best way to reach out is the Contact form on this site or email at vishnukprahbak@gmail.com. He's based in Tamil Nadu, India — LinkedIn is linked in the Contact section."
   },
   {

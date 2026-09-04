@@ -14,11 +14,11 @@ interface IndexedWord {
   entryId: string;
 }
 
-const FALLBACK_ANSWER = "I don't have a specific answer for that yet — try asking about his experience, skills, projects, education, or how to get in touch. You can also reach out directly via the Contact section!";
+const FALLBACK_ANSWER = "I don't have a specific answer for that yet — try asking about her experience, skills, projects, education, or how to get in touch. You can also reach out directly via the Contact section!";
 
 // Matching is order-independent keyword voting, not whole-sentence fuzzy matching:
-// a full question ("What is his current job?") is reduced to its meaningful words
-// (stripping filler like "what/is/his"), each word is fuzzy-matched (typo-tolerant)
+// a full question ("What is her current job?") is reduced to its meaningful words
+// (stripping filler like "what/is/her"), each word is fuzzy-matched (typo-tolerant)
 // against a flat index of keywords pulled from every entry's example phrasings, and
 // the entry with the most word-level hits wins. Whole-sentence edit-distance matching
 // was tried first and rejected — it's sensitive to word order and to length mismatches
@@ -83,7 +83,7 @@ export class ChatbotComponent implements AfterViewChecked {
   isOpen = signal(false);
   isTyping = signal(false);
   messages = signal<ChatMessage[]>([
-    { role: 'bot', text: "Hi! I'm a quick-answer assistant trained on Vishnuprabha's resume. Ask about his experience, skills, or projects — or tap a suggestion below." }
+    { role: 'bot', text: "Hi! I'm a quick-answer assistant trained on Vishnuprabha's resume. Ask about her experience, skills, or projects — or tap a suggestion below." }
   ]);
 
   inputText = '';
